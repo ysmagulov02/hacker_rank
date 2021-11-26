@@ -9,8 +9,6 @@ void update(int *a,int *b) {
     y = abs(*a - *b);
     *a = x;
     *b = y;
-    
-
 }
 
 int main() {
