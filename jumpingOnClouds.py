@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import math
 import os
 import random
@@ -13,19 +15,25 @@ import sys
 
 def jumpingOnClouds(c):
     # Write your code here
-    jump_count = 0
     i = 0
-    while i != (n - 1):
-        if c[i+2] == 0 and i < (n - 2):
-            jump_count += 1
+    jump_count = 0
+    last_cloud_postion = len(c)-1
+    last_second_postion = len(c)-2
+    
+    while i < last_second_postion:
+        # Checking if the cloud next to the next cloud is thunderstorm
+        if c[i+2] == 0:
             i += 2
-        else:
             jump_count += 1
+        else:
             i += 1
-    if i != len(c) - 1:
+            jump_count += 1
+    # Checking if we are in the last cloud or the last second cloud
+    if i != last_cloud_postion:
         jump_count += 1
         
     return jump_count
+            
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
